@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT Diary Input Form</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .small-text { font-size: 0.7rem; }
+        input::placeholder { color: lightgray; font-size: 0.6rem; }    
+    </style>
+</head>
+<body>
+
+
+     <!-- INFO grid with list of common distortions -->
+     <p class="text-primary text-center"><strong>Common Cognitive Distortions</strong></p>
+     
+     <div class="container small-text bg-primary bg-opacity-50 text-gray pt-3">
+       
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li>
+                        <img src="icons/noun-compare-1441177.png" alt="compare icon" style="height: 30px; width: 30px;">
+                        <strong>Black & White Thinking</strong>  - Viewing things in only two categories instead of on a continuum.
+                    </li>
+                    <li><img src="icons/noun-volcano-1034483.png" alt="volcano icon" style="height: 30px; width: 30px;">
+                        <strong>Overgeneralization</strong> - Making broad interpretations from a single event.
+                    </li>
+                    <li><img src="icons/noun-filter-6677224.png" alt="filter icon" style="height: 30px; width: 30px;">
+                        <strong>Filtering</strong> - Focusing solely on negative details and ignoring positive ones.
+                    </li>
+                </ul>
+            </div>
+            <!-- Column 2 -->
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li><img src="icons/noun-ignore-4850254.png" alt="ignoring icon" style="height: 30px; width: 30px;">
+                        <strong>Disqualifying the Positive</strong> - Dismissing positive experiences for no real reason.
+                    </li>
+                    <li><img src="icons/noun-negative-1197945.png" alt="negative icon" style="height: 30px; width: 30px;">
+                        <strong>Jumping to Conclusions</strong> - Assuming a negative outcome without evidence.
+                    </li>
+                    <li><img src="icons/noun-plus-minus-3440762.png" alt="plus minus icon" style="height: 30px; width: 30px;">
+                        <strong>Magnification and Minimization</strong>  - Blowing things out of proportion or shrinking their importance.
+                    </li>
+                </ul>
+            </div>
+            <!-- Column 3 -->
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li><img src="icons/noun-reasoning-6111991.png" alt="reasoning icon" style="height: 30px; width: 30px;">
+                        <strong>Emotional Reasoning</strong> - Believing that what you feel must be true automatically.
+                    </li>
+                    <li><img src="icons/noun-warning-575620.png" alt="warning icon" style="height: 30px; width: 30px;">
+                        <strong>Should Statements</strong> - Having a rigid set of rules about how you and others should behave.
+                    </li>
+                    <li><img src="icons/noun-label-6655325.png" alt="label icon" style="height: 30px; width: 30px;">
+                        <strong>Labeling and Mislabeling</strong>  - Assigning global negative labels to yourself or others based on specific events.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+<div class="container mt-4">
+    <h2 class="text-center text-white bg-primary p-2">CBT Diary</h2> 
+    <form id="cbtDiary" class="mb-3">
+        <!-- Hidden input for entry ID -->
+        <input type="hidden" id="entryId">
+        
+        <div class="d-flex align-items-center mb-3">
+            <label for="todayDate" class="me-3">Date</label>
+            <input type="date" class="form-control" id="todayDate" aria-describedby="dateHelp" required>
+        </div>
+
+        <div class="d-flex align-items-center mb-3">
+            <label for="mood1" class="me-3 mb-0">My Mood</label>
+            <div id="mood1Dropdown" class="flex-grow-1"></div> 
+        </div>
+
+        <div class="d-flex align-items-center mb-3">
+            <label for="story" class="me-3">Story</label> 
+            <input type="text" class="form-control" id="story" placeholder="Type in the story I'm telling myself"> 
+        </div>
+
+        <div class="d-flex align-items-center mb-3">
+            <label for="distortion" class="me-3">Distortion(s)</label> 
+            <input type="text" class="form-control" id="distortion" placeholder="Identify and type in any cognitive distortion(s)"> 
+        </div>
+
+        <div class="d-flex align-items-center mb-3 pt-3">
+            <label for="rewrite" class="me-3">Rewrite</label> 
+            <input type="text" class="form-control" id="rewrite" placeholder="Type in new story removing cognitive distortion(s)"> 
+        </div>
+
+        <div class="d-flex align-items-center mb-3">
+            <label for="mood2" class="me-3 mb-0 flex-shrink-0">New Mood</label>
+            <input type="text" class="form-control flex-grow-1" id="mood2" placeholder="Type in how I feel now - Better, Same, Worse">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add/Update Diary Entry</button>
+    </form>
+
+    <h2 class="text-center text-white bg-primary p-2">CBT Diary Log</h2>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Date</th>
+                <th>Original Mood</th>
+                <th>Story</th>
+                <th>Distortion</th>
+                <th>Rewrite</th>
+                <th>New Mood</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<script src="diary2.js"></script>
+</body>
+</html>
